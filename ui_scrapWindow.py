@@ -15,7 +15,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QRadialGradient)
 from PySide2.QtWidgets import *
 
-import res1_rc
+# import res1_rc
 
 class Ui_ScrapWindow(object):
     def setupUi(self, ScrapWindow):
@@ -38,7 +38,7 @@ class Ui_ScrapWindow(object):
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(150, 0, 531, 121))
-        self.label.setStyleSheet(u"image: url(:/images/Logo_pink.png);")
+        self.label.setStyleSheet(u"image: url(Logo_pink.png);")
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(50, 130, 731, 61))
@@ -50,11 +50,11 @@ class Ui_ScrapWindow(object):
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(230, 200, 371, 221))
-        self.label_3.setStyleSheet(u"image: url(:/images/start1.png);")
+        self.label_3.setStyleSheet(u"image: url(start1.png);")
         self.label_4 = QLabel(self.frame)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(370, 380, 91, 81))
-        self.label_4.setStyleSheet(u"image: url(:/images/exit-button-orb-1098096-removebg-preview.png);")
+        self.label_4.setStyleSheet(u"image: url(exit-button-orb-1098096-removebg-preview.png);")
         self.progressBar = QProgressBar(self.frame)
         self.progressBar.setObjectName(u"progressBar")
         self.progressBar.setGeometry(QRect(50, 480, 711, 31))
