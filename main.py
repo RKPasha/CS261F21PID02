@@ -16,13 +16,16 @@ from PySide2.QtWidgets import *
 ## ==> SPLASH SCREEN
 from ui_loadingScreen import Ui_MainWindow
 
-# ==> MAIN WINDOW
+# ==> SCRAP WINDOW
 from ui_scrapWindow import Ui_ScrapWindow
+
+# ==> DATA SET WINDOW
+from ui_DataSetWindow import Ui_DataSetWindow
 
 ## ==> GLOBALS
 counter = 0
 
-# YOUR APPLICATION
+# ScrapWindow
 class ScrapWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -36,6 +39,19 @@ class ScrapWindow(QMainWindow):
         # MAIN WINDOW LABEL
         # QtCore.QTimer.singleShot(1500, lambda: self.ui.label.setText("<strong>THANKS</strong> FOR WATCHING"))
         # QtCore.QTimer.singleShot(1500, lambda: self.setStyleSheet("background-color: #222; color: #FFF"))
+
+
+class DataSetWindow(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        self.ui = Ui_DataSetWindow()
+        self.ui.setupUi(self)
+
+        ## REMOVE TITLE BAR
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        # self.run()
+        # self.loadBtn.clicked.connect(self.run)
 
 
 # SPLASH SCREEN
@@ -99,7 +115,7 @@ class LoadingScreen(QMainWindow):
             self.timer.stop()
 
             # SHOW MAIN WINDOW
-            self.main = ScrapWindow()
+            self.main = DataSetWindow()
             self.main.show()
 
             # CLOSE SPLASH SCREEN
