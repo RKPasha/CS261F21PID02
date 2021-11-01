@@ -50,8 +50,7 @@ class DataSetWindow(QMainWindow):
         ## REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
-        # self.run()
-        # self.loadBtn.clicked.connect(self.run)
+        self.ui.exitBtn.clicked.connect(self.close)
 
 
 # SPLASH SCREEN
@@ -91,8 +90,8 @@ class LoadingScreen(QMainWindow):
         self.ui.label_desc.setText("<strong>WELCOME</strong> TO WHAT MOBILE")
 
         # Change Texts
-        QtCore.QTimer.singleShot(1500, lambda: self.ui.label_desc.setText("<strong>LOADING</strong> DATABASE"))
-        QtCore.QTimer.singleShot(3000, lambda: self.ui.label_desc.setText("<strong>LOADING</strong> USER INTERFACE"))
+        QtCore.QTimer.singleShot(3000, lambda: self.ui.label_desc.setText("<strong>LOADING</strong> DATABASE"))
+        QtCore.QTimer.singleShot(3500, lambda: self.ui.label_desc.setText("<strong>LOADING</strong> USER INTERFACE"))
 
 
         ## SHOW ==> MAIN WINDOW

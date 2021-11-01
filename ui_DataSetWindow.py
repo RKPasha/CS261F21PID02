@@ -49,12 +49,18 @@ class Ui_DataSetWindow(object):
         self.label.setGeometry(QRect(0, 0, 1091, 121))
         self.label.setStyleSheet(u"image: url(Logo_pink.png);")
         self.clearBtn = QPushButton(self.frame)
+        self.clearBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.clearBtn.setObjectName(u"clearBtn")
         self.clearBtn.setGeometry(QRect(430, 200, 101, 31))
         self.clearBtn.setStyleSheet(u"QPushButton{\n"
 "	font: 75 11pt \"Comic Sans MS\";\n"
 "	background-color: rgb(255, 255, 255);\n"
 "    border-radius: 15px;\n"
+"}"
+"QPushButton::hover{\n"
+"background-color: rgb(250, 250, 245);\n"
+"border-radius: 15px;\n"
+"font: 75 13pt \"Comic Sans MS\";\n"
 "}")
         self.filter_comboBox1 = QComboBox(self.frame)
         self.filter_comboBox1.addItem("")
@@ -80,6 +86,11 @@ class Ui_DataSetWindow(object):
 "background-color: rgb(0, 204, 204);\n"
 "border-radius: 15px;\n"
 "font: 75 11pt \"Comic Sans MS\";\n"
+"}"
+"QPushButton::hover{\n"
+"background-color: rgb(0, 210, 210);\n"
+"border-radius: 15px;\n"
+"font: 75 13pt \"Comic Sans MS\";\n"
 "}")
         self.logical_op_comboBox = QComboBox(self.frame)
         self.logical_op_comboBox.addItem("")
@@ -129,10 +140,16 @@ class Ui_DataSetWindow(object):
         self.filterBtn = QPushButton(self.frame)
         self.filterBtn.setObjectName(u"filterBtn")
         self.filterBtn.setGeometry(QRect(560, 200, 101, 31))
+        self.filterBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.filterBtn.setStyleSheet(u"QPushButton{\n"
 "background-color: rgb(0, 204, 204);\n"
 "border-radius: 15px;\n"
 "font: 75 11pt \"Comic Sans MS\";\n"
+"}"
+"QPushButton::hover{\n"
+"background-color: rgb(0, 210, 210);\n"
+"border-radius: 15px;\n"
+"font: 75 13pt \"Comic Sans MS\";\n"
 "}")
         self.filter_textBox1 = QTextEdit(self.frame)
         self.filter_textBox1.setObjectName(u"filter_textBox1")
@@ -146,6 +163,11 @@ class Ui_DataSetWindow(object):
 "	background-color: rgb(195, 0, 0);\n"
 "border-radius: 15px;\n"
 "font: 75 11pt \"Comic Sans MS\";\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(180, 0, 0);\n"
+"border-radius: 15px;\n"
+"font: 75 13pt \"Comic Sans MS\";\n"
 "}")
         self.ass_comboBox = QComboBox(self.frame)
         self.ass_comboBox.addItem("")
@@ -170,6 +192,11 @@ class Ui_DataSetWindow(object):
 "background-color: rgb(0, 204, 204);\n"
 "border-radius: 15px;\n"
 "font: 75 11pt \"Comic Sans MS\";\n"
+"}"
+"QPushButton::hover{\n"
+"background-color: rgb(0, 210, 210);\n"
+"border-radius: 15px;\n"
+"font: 75 13pt \"Comic Sans MS\";\n"
 "}")
         self.loadBtn = QPushButton(self.frame)
         self.loadBtn.setObjectName(u"loadBtn")
@@ -178,6 +205,11 @@ class Ui_DataSetWindow(object):
 "	font: 75 11pt \"Comic Sans MS\";\n"
 "	background-color: rgb(255, 255, 255);\n"
 "    border-radius: 15px;\n"
+"}"
+"QPushButton::hover{\n"
+"background-color: rgb(250, 250, 245);\n"
+"border-radius: 15px;\n"
+"font: 75 13pt \"Comic Sans MS\";\n"
 "}")
 
         self.verticalLayout.addWidget(self.frame)
@@ -201,12 +233,13 @@ class Ui_DataSetWindow(object):
         self.sort_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Slection Sort", None))
 
         self.loadBtn.clicked.connect(self.run)
-        self.exitBtn.clicked.connect(self.exit)
+        
 
 
 
 
         self.sortBtn.setText(QCoreApplication.translate("MainWindow", u"Sort", None))
+        self.sortBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.logical_op_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Or", None))
         self.logical_op_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"And", None))
 
@@ -233,22 +266,22 @@ class Ui_DataSetWindow(object):
 
         self.filterBtn.setText(QCoreApplication.translate("MainWindow", u"Filter", None))
         self.exitBtn.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.exitBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.ass_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Asscending", None))
         self.ass_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Descending", None))
 
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Time Taken:", None))
         self.scrapBtn.setText(QCoreApplication.translate("MainWindow", u"Scrap More Data", None))
+        self.scrapBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
         self.loadBtn.setText(QCoreApplication.translate("MainWindow", u"Load Data", None))
+        self.loadBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
     # retranslateUi
-    def exit(self):
-                self.close()
     def run(self):
                 import pandas as pd
                 try:
                         self.all_data = pd.read_csv('kimovil.csv')
                 except:
                         print("An Error Occured!")
-                # self.LoadData.setEnabled(False)
                 NumRows = len(self.all_data.index)
                 self.tableWidget.setColumnCount(len(self.all_data.columns))
                 self.tableWidget.setRowCount(NumRows)
