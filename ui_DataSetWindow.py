@@ -198,19 +198,19 @@ class Ui_DataSetWindow(object):
 "border-radius: 15px;\n"
 "font: 75 13pt \"Comic Sans MS\";\n"
 "}")
-        self.loadBtn = QPushButton(self.frame)
-        self.loadBtn.setObjectName(u"loadBtn")
-        self.loadBtn.setGeometry(QRect(70, 200, 101, 31))
-        self.loadBtn.setStyleSheet(u"QPushButton{\n"
-"	font: 75 11pt \"Comic Sans MS\";\n"
-"	background-color: rgb(255, 255, 255);\n"
-"    border-radius: 15px;\n"
-"}"
-"QPushButton::hover{\n"
-"background-color: rgb(250, 250, 245);\n"
-"border-radius: 15px;\n"
-"font: 75 13pt \"Comic Sans MS\";\n"
-"}")
+        # self.loadBtn = QPushButton(self.frame)
+        # self.loadBtn.setObjectName(u"loadBtn")
+        # self.loadBtn.setGeometry(QRect(70, 200, 101, 31))
+        # self.loadBtn.setStyleSheet(u"QPushButton{\n"
+# "	font: 75 11pt \"Comic Sans MS\";\n"
+# "	background-color: rgb(255, 255, 255);\n"
+# "    border-radius: 15px;\n"
+# "}"
+# "QPushButton::hover{\n"
+# "background-color: rgb(250, 250, 245);\n"
+# "border-radius: 15px;\n"
+# "font: 75 13pt \"Comic Sans MS\";\n"
+# "}")
 
         self.verticalLayout.addWidget(self.frame)
 
@@ -232,7 +232,7 @@ class Ui_DataSetWindow(object):
         self.sort_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Insertion Sort", None))
         self.sort_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Slection Sort", None))
 
-        self.loadBtn.clicked.connect(self.run)
+        # self.loadBtn.clicked.connect(self.run)
         
 
 
@@ -273,10 +273,11 @@ class Ui_DataSetWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Time Taken:", None))
         self.scrapBtn.setText(QCoreApplication.translate("MainWindow", u"Scrap More Data", None))
         self.scrapBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
-        self.loadBtn.setText(QCoreApplication.translate("MainWindow", u"Load Data", None))
-        self.loadBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
+        # self.loadBtn.setText(QCoreApplication.translate("MainWindow", u"Load Data", None))
+        # self.loadBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
     # retranslateUi
     def run(self):
+                print("run called")
                 import pandas as pd
                 try:
                         self.all_data = pd.read_csv('kimovil.csv')

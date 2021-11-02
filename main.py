@@ -31,7 +31,7 @@ class ScrapWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_ScrapWindow()
         self.ui.setupUi(self)
-
+        # self.ui.run()
         ## REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
@@ -52,6 +52,21 @@ class DataSetWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_DataSetWindow()
         self.ui.setupUi(self)
+        import pandas as pd
+        try:
+                self.all_data = pd.read_csv('kimovil.csv')
+                NumRows = len(self.all_data.index)
+                self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
+                self.ui.tableWidget.setRowCount(NumRows)
+                self.ui.tableWidget.setHorizontalHeaderLabels(self.all_data.columns)
+                for i in range(NumRows):
+                        for j in range(len(self.all_data.columns)):
+                                self.ui.tableWidget.setItem(i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
+
+                self.ui.tableWidget.resizeColumnsToContents()
+                self.ui.tableWidget.resizeRowsToContents()
+        except:
+                print("An Error Occured!")
 
         ## REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
@@ -63,6 +78,7 @@ class DataSetWindow(QMainWindow):
         self.scrap.show()
         self.raise_()
         self.hide() == True
+                
 
 # SPLASH SCREEN
 class LoadingScreen(QMainWindow):
