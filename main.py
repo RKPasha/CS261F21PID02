@@ -35,6 +35,11 @@ class ScrapWindow(QMainWindow):
         ## REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.ui.ExitBtn.clicked.connect(self.switch)
+    def switch(self):
+        self.talha=ScrapWindow()
+        self.talha.show()
+        self.hide()
 
         # MAIN WINDOW LABEL
         # QtCore.QTimer.singleShot(1500, lambda: self.ui.label.setText("<strong>THANKS</strong> FOR WATCHING"))
@@ -51,7 +56,11 @@ class DataSetWindow(QMainWindow):
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ui.exitBtn.clicked.connect(self.close)
-
+        self.ui.scrapBtn.clicked.connect(self.switch)
+    def switch(self):
+        self.talha=ScrapWindow()
+        self.talha.show()
+        self.hide()
 
 # SPLASH SCREEN
 class LoadingScreen(QMainWindow):

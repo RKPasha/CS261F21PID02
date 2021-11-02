@@ -79,7 +79,7 @@ border-radius:12px;
         <string>     What Mobile gathers data from websites to reveal the latest smartphones.The scrapped data contains feature,price tags, ratings, and reviews. </string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_3">
+      <widget class="QLabel" name="StartBtn">
        <property name="geometry">
         <rect>
          <x>230</x>
@@ -95,7 +95,7 @@ border-radius:12px;
         <string/>
        </property>
       </widget>
-      <widget class="QLabel" name="label_4">
+      <widget class="QLabel" name="ExitBtn">
        <property name="geometry">
         <rect>
          <x>370</x>
