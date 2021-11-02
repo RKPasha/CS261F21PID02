@@ -79,38 +79,6 @@ border-radius:12px;
         <string>     What Mobile gathers data from websites to reveal the latest smartphones.The scrapped data contains feature,price tags, ratings, and reviews. </string>
        </property>
       </widget>
-      <widget class="QLabel" name="StartBtn">
-       <property name="geometry">
-        <rect>
-         <x>230</x>
-         <y>200</y>
-         <width>371</width>
-         <height>221</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">image: url(:/images/start1.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="ExitBtn">
-       <property name="geometry">
-        <rect>
-         <x>370</x>
-         <y>380</y>
-         <width>91</width>
-         <height>81</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">image: url(:/images/exit-button-orb-1098096-removebg-preview.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
       <widget class="QProgressBar" name="progressBar">
        <property name="geometry">
         <rect>
@@ -135,6 +103,63 @@ QProgressBar::chunk{
        </property>
        <property name="value">
         <number>24</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ExitBtn">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>380</y>
+         <width>91</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+image: url(:/images/exit-button-orb-1098096-removebg-preview.png);
+background-color: rgb(40, 42, 54);
+border-radius: 30px;
+}
+QPushButton::hover{
+image: url(:/images/exit-button-96-removebg-preview.png);
+background-color: rgb(40, 42, 54);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="startBtn">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>230</y>
+         <width>151</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{
+image:url(:/images/start1.png);
+background-color: rgb(40, 42, 54);
+border-radius: 30px;
+}
+QPushButton::hover{
+image:url(:/images/start2.png);
+background-color: rgb(40, 42, 54);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
        </property>
       </widget>
      </widget>

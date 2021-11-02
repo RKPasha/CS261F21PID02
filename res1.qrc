@@ -1,7 +1,9 @@
 <RCC>
   <qresource prefix="images">
     <file>exit-button-orb-1098096-removebg-preview.png</file>
-    <file>start1.png</file>
     <file>Logo_pink.png</file>
+    <file>exit-button-96-removebg-preview.png</file>
+    <file>start1.png</file>
+    <file>start2.png</file>
   </qresource>
 </RCC>
