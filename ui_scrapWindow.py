@@ -60,7 +60,7 @@ class Ui_ScrapWindow(object):
 "	background-color: qlineargradient(spread:pad, x1:0, y1:0.494, x2:1, y2:0.477273, stop:0 rgba(0, 204, 204, 255), stop:1 rgba(255, 121, 198, 255));\n"
 "	border-radius: 10px;\n"
 "}")
-        self.progressBar.setValue(24)
+        self.progressBar.setValue(0)
         self.ExitBtn = QPushButton(self.frame)
         self.ExitBtn.setObjectName(u"ExitBtn")
         self.ExitBtn.setGeometry(QRect(370, 380, 91, 91))
