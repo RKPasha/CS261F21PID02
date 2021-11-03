@@ -31,7 +31,6 @@ class ScrapWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.ui = Ui_ScrapWindow()
         self.ui.setupUi(self)
-        # self.ui.run()
         ## REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
@@ -73,12 +72,41 @@ class DataSetWindow(QMainWindow):
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         self.ui.exitBtn.clicked.connect(sys.exit)
         self.ui.scrapBtn.clicked.connect(self.switch)
+        self.ui.sortBtn.clicked.connect(self.sort)
+        self.ui.clearBtn.clicked.connect(self.clear)
+        self.ui.filterBtn.clicked.connect(self.filter)
+
+
     def switch(self):
         self.scrap=ScrapWindow()
         self.scrap.show()
         self.raise_()
         self.hide() == True
-                
+    
+    def clear(self):
+        # print('clear clicked')
+        self.ui.filter_comboBox1.setCurrentIndex(0)
+        self.ui.filter_comboBox2.setCurrentIndex(0)
+        self.ui.logical_op_comboBox.setCurrentIndex(0)
+        self.ui.filter_textBox1.setText("")
+        self.ui.filter_textBox2.setText("")
+
+    def filter(self):
+        fCombo1 = self.ui.filter_comboBox1.currentIndex()
+        fCombo2 = self.ui.filter_comboBox2.currentIndex()
+        lCombo = self.ui.logical_op_comboBox.currentIndex()
+        fText1 = self.ui.filter_textBox1.toPlainText()
+        fText2 = self.ui.filter_textBox2.toPlainText()
+        print(fCombo1,fCombo2,lCombo,fText1,fText2)
+        self.clear()
+
+    def sort(self):
+        cCombo = self.ui.col_comboBox.currentIndex()
+        aCombo = self.ui.ass_comboBox.currentIndex()
+        sCombo = self.ui.sort_comboBox.currentIndex()
+        self.ui.col_comboBox.setCurrentIndex(0)
+        self.ui.ass_comboBox.setCurrentIndex(0)
+        self.ui.sort_comboBox.setCurrentIndex(0)        
 
 # SPLASH SCREEN
 class LoadingScreen(QMainWindow):

@@ -74,8 +74,15 @@ class Ui_DataSetWindow(object):
         self.sort_comboBox.addItem("")
         self.sort_comboBox.addItem("")
         self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
+        self.sort_comboBox.addItem("")
         self.sort_comboBox.setObjectName(u"sort_comboBox")
-        self.sort_comboBox.setGeometry(QRect(650, 580, 161, 31))
+        self.sort_comboBox.setGeometry(QRect(750, 580, 161, 31))
         self.sort_comboBox.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "border-radius: 15px;\n"
 "font: 63 10pt \"Lucida Bright\";")
@@ -169,11 +176,26 @@ class Ui_DataSetWindow(object):
 "border-radius: 15px;\n"
 "font: 75 13pt \"Comic Sans MS\";\n"
 "}")
+        self.col_comboBox = QComboBox(self.frame)
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.addItem("")
+        self.col_comboBox.setObjectName(u"col_comboBox")
+        self.col_comboBox.setGeometry(QRect(250, 580, 161, 31))
+        self.col_comboBox.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"border-radius: 15px;\n"
+"font: 63 10pt \"Lucida Bright\";")
         self.ass_comboBox = QComboBox(self.frame)
         self.ass_comboBox.addItem("")
         self.ass_comboBox.addItem("")
+        self.ass_comboBox.addItem("")
         self.ass_comboBox.setObjectName(u"ass_comboBox")
-        self.ass_comboBox.setGeometry(QRect(330, 580, 161, 31))
+        self.ass_comboBox.setGeometry(QRect(490, 580, 161, 31))
         self.ass_comboBox.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "border-radius: 15px;\n"
 "font: 63 10pt \"Lucida Bright\";")
@@ -228,9 +250,16 @@ class Ui_DataSetWindow(object):
         self.filter_comboBox1.setItemText(0, QCoreApplication.translate("MainWindow", u"Is Equal to ", None))
         self.filter_comboBox1.setItemText(1, QCoreApplication.translate("MainWindow", u"Not Equal to ", None))
 
-        self.sort_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Bubble Sort", None))
+        self.sort_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"--Sorting Algorithm--", None))
         self.sort_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Insertion Sort", None))
         self.sort_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Slection Sort", None))
+        self.sort_comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"Bubble Sort", None))
+        self.sort_comboBox.setItemText(4, QCoreApplication.translate("MainWindow", u"Quick Sort", None))
+        self.sort_comboBox.setItemText(5, QCoreApplication.translate("MainWindow", u"Counting Sort", None))
+        self.sort_comboBox.setItemText(6, QCoreApplication.translate("MainWindow", u"Radix Sort", None))
+        self.sort_comboBox.setItemText(7, QCoreApplication.translate("MainWindow", u"Bucket Sort", None))
+        self.sort_comboBox.setItemText(8, QCoreApplication.translate("MainWindow", u"Merge Sort", None))
+        self.sort_comboBox.setItemText(9, QCoreApplication.translate("MainWindow", u"Tim Sort", None))
 
         # self.loadBtn.clicked.connect(self.run)
         
@@ -267,8 +296,18 @@ class Ui_DataSetWindow(object):
         self.filterBtn.setText(QCoreApplication.translate("MainWindow", u"Filter", None))
         self.exitBtn.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.exitBtn.setCursor(QCursor(QtCore.Qt.PointingHandCursor))
-        self.ass_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Asscending", None))
-        self.ass_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Descending", None))
+        self.col_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"--Select Column--", None))
+        self.col_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Title", None))
+        self.col_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Ratings", None))
+        self.col_comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"Screen Size", None))
+        self.col_comboBox.setItemText(4, QCoreApplication.translate("MainWindow", u"Storage", None))
+        self.col_comboBox.setItemText(5, QCoreApplication.translate("MainWindow", u"RAM", None))
+        self.col_comboBox.setItemText(6, QCoreApplication.translate("MainWindow", u"User Review", None))
+        self.col_comboBox.setItemText(7, QCoreApplication.translate("MainWindow", u"Price", None))
+
+        self.ass_comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"--Sort By--", None))
+        self.ass_comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Asscending", None))
+        self.ass_comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Descending", None))
 
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Time Taken:", None))
         self.scrapBtn.setText(QCoreApplication.translate("MainWindow", u"Scrap More Data", None))
