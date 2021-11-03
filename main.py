@@ -15,7 +15,8 @@ from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTi
 from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase,
                            QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
-
+from numpy import empty
+import pandas as pd
 # ==> SPLASH SCREEN
 from ui_loadingScreen import Ui_MainWindow
 
@@ -32,7 +33,7 @@ from Algorithms import sort
 counter = 0
 counter1 = 0
 flag = False
-dataframe = None
+dataframe= pd.DataFrame()
 # ScrapWindow
 
 
@@ -80,7 +81,6 @@ class ScrapWindow(QMainWindow):
         global flag
         global dataframe
         self.data = Ui_DataSetWindow()
-        import pandas as pd
         try:
             if flag:
                 flag = False
@@ -89,7 +89,7 @@ class ScrapWindow(QMainWindow):
             self.timer = QtCore.QTimer()
             self.timer.timeout.connect(self.progress)
             self.timer.start(25)
-            df = pd.read_csv("kimovil1.csv")
+            df = pd.read_csv("kimovil.csv")
             Title = df.Title
             Rating = df.Ratings
             Screen_size = df.ScreenSize
@@ -100,7 +100,6 @@ class ScrapWindow(QMainWindow):
             Url = df.URL
             dataframe = pd.DataFrame({'Title': Title, 'Rating': Rating, 'Screen_size': Screen_size,
                                      'Storage': Storage, 'Ram': Ram, 'User_review': User_review, 'Price': Price, 'Url': Url})
-            # print(dataframe)
             self.show()
         except error:
             print(error)
@@ -118,44 +117,43 @@ class DataSetWindow(QMainWindow):
         self.ui = Ui_DataSetWindow()
         self.ui.setupUi(self)
         import pandas as pd
-        print(dataframe)
-        # if dataframe:
-        #     print("in if")
-        #     # try:
-        #     #     self.all_data = dataframe
-        #     #     NumRows = len(self.all_data.index)
-        #     #     self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
-        #     #     self.ui.tableWidget.setRowCount(NumRows)
-        #     #     self.ui.tableWidget.setHorizontalHeaderLabels(
-        #     #         self.all_data.columns)
-        #     #     for i in range(NumRows):
-        #     #         for j in range(len(self.all_data.columns)):
-        #     #             self.ui.tableWidget.setItem(
-        #     #                 i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
+        if dataframe.empty:
+            # print("in if")
+            try:
+                self.all_data = pd.read_csv('data.csv')
+                NumRows = len(self.all_data.index)
+                self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
+                self.ui.tableWidget.setRowCount(NumRows)
+                self.ui.tableWidget.setHorizontalHeaderLabels(
+                    self.all_data.columns)
+                for i in range(NumRows):
+                    for j in range(len(self.all_data.columns)):
+                        self.ui.tableWidget.setItem(
+                            i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
 
-        #     #     self.ui.tableWidget.resizeColumnsToContents()
-        #     #     self.ui.tableWidget.resizeRowsToContents()
-        #     # except:
-        #     #     print("An Error Occured!")
-        # else:
-        #     print(dataframe)
+                self.ui.tableWidget.resizeColumnsToContents()
+                self.ui.tableWidget.resizeRowsToContents()
+            except:
+                print("An Error Occured!")
+        else:
+            try:
+                self.all_data = dataframe
+                NumRows = len(self.all_data.index)
+                self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
+                self.ui.tableWidget.setRowCount(NumRows)
+                self.ui.tableWidget.setHorizontalHeaderLabels(
+                    self.all_data.columns)
+                for i in range(NumRows):
+                    for j in range(len(self.all_data.columns)):
+                        self.ui.tableWidget.setItem(
+                            i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
+
+                self.ui.tableWidget.resizeColumnsToContents()
+                self.ui.tableWidget.resizeRowsToContents()
+            except:
+                print("An Error Occured!")
+            # print(dataframe)
             
-            # try:
-            #     self.all_data = pd.read_csv('kimovil.csv')
-            #     NumRows = len(self.all_data.index)
-            #     self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
-            #     self.ui.tableWidget.setRowCount(NumRows)
-            #     self.ui.tableWidget.setHorizontalHeaderLabels(
-            #         self.all_data.columns)
-            #     for i in range(NumRows):
-            #         for j in range(len(self.all_data.columns)):
-            #             self.ui.tableWidget.setItem(
-            #                 i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
-
-            #     self.ui.tableWidget.resizeColumnsToContents()
-            #     self.ui.tableWidget.resizeRowsToContents()
-            # except:
-            #     print("An Error Occured!")
 
         # REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
