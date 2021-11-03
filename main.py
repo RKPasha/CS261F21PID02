@@ -25,11 +25,14 @@ from ui_scrapWindow import Ui_ScrapWindow
 # ==> DATA SET WINDOW
 from ui_DataSetWindow import Ui_DataSetWindow
 
+# ==> Algorithms
+from Algorithms import sort
+
 # ==> GLOBALS
 counter = 0
 counter1 = 0
 flag = False
-
+dataframe = None
 # ScrapWindow
 
 
@@ -40,6 +43,7 @@ class ScrapWindow(QMainWindow):
         self.ui.setupUi(self)
 
         global flag
+        global dataframe
         # self.ui.run()
         # REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
@@ -74,6 +78,7 @@ class ScrapWindow(QMainWindow):
 
     def load(self):
         global flag
+        global dataframe
         self.data = Ui_DataSetWindow()
         import pandas as pd
         try:
@@ -95,6 +100,7 @@ class ScrapWindow(QMainWindow):
             Url = df.URL
             dataframe = pd.DataFrame({'Title': Title, 'Rating': Rating, 'Screen_size': Screen_size,
                                      'Storage': Storage, 'Ram': Ram, 'User_review': User_review, 'Price': Price, 'Url': Url})
+            # print(dataframe)
             self.show()
         except error:
             print(error)
@@ -112,22 +118,44 @@ class DataSetWindow(QMainWindow):
         self.ui = Ui_DataSetWindow()
         self.ui.setupUi(self)
         import pandas as pd
-        try:
-            self.all_data = pd.read_csv('kimovil.csv')
-            NumRows = len(self.all_data.index)
-            self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
-            self.ui.tableWidget.setRowCount(NumRows)
-            self.ui.tableWidget.setHorizontalHeaderLabels(
-                self.all_data.columns)
-            for i in range(NumRows):
-                for j in range(len(self.all_data.columns)):
-                    self.ui.tableWidget.setItem(
-                        i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
+        print(dataframe)
+        # if dataframe:
+        #     print("in if")
+        #     # try:
+        #     #     self.all_data = dataframe
+        #     #     NumRows = len(self.all_data.index)
+        #     #     self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
+        #     #     self.ui.tableWidget.setRowCount(NumRows)
+        #     #     self.ui.tableWidget.setHorizontalHeaderLabels(
+        #     #         self.all_data.columns)
+        #     #     for i in range(NumRows):
+        #     #         for j in range(len(self.all_data.columns)):
+        #     #             self.ui.tableWidget.setItem(
+        #     #                 i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
 
-            self.ui.tableWidget.resizeColumnsToContents()
-            self.ui.tableWidget.resizeRowsToContents()
-        except:
-            print("An Error Occured!")
+        #     #     self.ui.tableWidget.resizeColumnsToContents()
+        #     #     self.ui.tableWidget.resizeRowsToContents()
+        #     # except:
+        #     #     print("An Error Occured!")
+        # else:
+        #     print(dataframe)
+            
+            # try:
+            #     self.all_data = pd.read_csv('kimovil.csv')
+            #     NumRows = len(self.all_data.index)
+            #     self.ui.tableWidget.setColumnCount(len(self.all_data.columns))
+            #     self.ui.tableWidget.setRowCount(NumRows)
+            #     self.ui.tableWidget.setHorizontalHeaderLabels(
+            #         self.all_data.columns)
+            #     for i in range(NumRows):
+            #         for j in range(len(self.all_data.columns)):
+            #             self.ui.tableWidget.setItem(
+            #                 i, j, QTableWidgetItem(str(self.all_data.iat[i, j])))
+
+            #     self.ui.tableWidget.resizeColumnsToContents()
+            #     self.ui.tableWidget.resizeRowsToContents()
+            # except:
+            #     print("An Error Occured!")
 
         # REMOVE TITLE BAR
         self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
